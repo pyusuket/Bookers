@@ -32,7 +32,14 @@
     </table>
     
     <h2>New book</h2>
-      <!--form withの部分-->
+    <% if @list.errors.any? %>
+      <%= @list.errors.count %>errors prohibited this book from being saved:
+      <ul>
+        <% @list.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
       <%= form_with model: @list, url: '/lists', method: :post do |f| %>
         <div class="faied">
           <label>Title</label><br>
