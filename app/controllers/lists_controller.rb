@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   def new
     # Viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する。
     @list = List.new
+    @lists = List.all
   end
   def create
     # １.&2. データを受け取り新規登録するためのインスタンス作成
@@ -23,7 +24,16 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
   end
   
+  def update
+    list = List.find(params[:id])
+    list.update(list_params)
+    redirect_to list_path(list.id)  
+  end
+  
   def destroy
+    list = List.find(params[:id])  
+    list.destroy  
+    redirect_to '/lists/new'  
   end
   
   private

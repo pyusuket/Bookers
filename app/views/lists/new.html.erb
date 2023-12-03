@@ -1,13 +1,51 @@
-<h1>新規投稿</h1>
-
-<!--form withの部分-->
-<%= form_with model: @list, url: '/lists', method: :post do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-	
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-	
-  <%= f.submit '投稿' %>
-<% end %>
-
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>WebCampBackendNew</title>
+    <meta charset="UTF-8" />
+    <meta name="WebCampBackendNew" >
+    <meta name="viewport" content="width=device-width,initial-scale=1" >
+    <link rel="stylesheets" href="lists.css" />
+  </head>
+  <body>
+    <p id="notice"></p>
+  <h1>Books</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Body</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lists.each do |list| %>
+      　　<tr>
+        　　<td><%= list.title %></td>
+        　　<td><%= list.body %></td>
+        　　<td><%= link_to 'Show', list_path(list) %></td>
+        　　<td><%= link_to 'Edit', edit_list_path(list) %></td>
+        　　<td><%= link_to 'Distroy', list ,method: :delete, data: {confirm: 'Are you sure?' } %></td>
+      　　</tr>
+    　　<% end %>
+      </tbody>
+    </table>
+    
+    <h2>New book</h2>
+      <!--form withの部分-->
+      <%= form_with model: @list, url: '/lists', method: :post do |f| %>
+        <div class="faied">
+          <label>Title</label><br>
+          <%= f.text_field :title %>
+        </div>
+        <div class="faied">
+          <label>Body</label><br>
+          <%= f.text_area :body %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Create book' %>
+        </div>
+        
+      <% end %>
+  </body>
+</html>
