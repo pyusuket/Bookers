@@ -27,9 +27,13 @@ class ListsController < ApplicationController
   end
   
   def update
-    list = List.find(params[:id])
-    list.update(list_params)
-    redirect_to list_path(list.id)  
+    @list = List.find(params[:id])
+    if @list.update(list_params)
+      redirect_to list_path(@list.id)
+    else
+      @lists = List.all
+      render :edit
+    end
   end
   
   def destroy
@@ -39,7 +43,6 @@ class ListsController < ApplicationController
   end
   
   private
-  # ストロングパラメータ
   def list_params
     params.require(:list).permit(:title, :body)
   end
