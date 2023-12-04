@@ -7,6 +7,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
+      flash[:notice] = "Book was successfully updated."
       redirect_to list_path(@list.id)
     else
       @lists = List.all
@@ -29,6 +30,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update(list_params)
+      flash[:notice] = "Book was successfully updated."
       redirect_to list_path(@list.id)
     else
       @lists = List.all
