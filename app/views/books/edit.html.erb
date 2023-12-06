@@ -1,4 +1,14 @@
-<div class="flash-message">
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>WebCampBackendNew</title>
+    <meta charset="UTF-8" />
+    <meta name="WebCampBackendNew" >
+    <meta name="viewport" content="width=device-width,initial-scale=1" >
+    <link rel="stylesheets" href="/books.css"/>
+  </head>
+<body>
+  <div class="flash-message">
   <%= flash[:notice] %>
 </div>
 <h1>Editing Book</h1>
@@ -19,3 +29,6 @@
   <%= link_to "Show", book_path(@book.id) %> |
   <%= link_to "Back", book_path %>
 <% end %>
+  
+</body>
+</html>
