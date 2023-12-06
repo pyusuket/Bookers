@@ -1,8 +1,8 @@
 <div class="flash-message">
   <%= flash[:notice] %>
 </div>
-<p><strong>title:</strong><%= @list.title %></p>
+<p><strong>title:</strong><%= @book.title %></p>
 
-<p><strong>body:</strong><%= @list.body %></p>
-      <%= link_to "Edit", edit_list_path(@list.id) %> |
-      <%= link_to "Back", "/lists/new" %>
+<p><strong>body:</strong><%= @book.body %></p>
+      <%= link_to "Edit", edit_book_path(@book.id) %> |
+      <%= link_to "Back", books_path %>

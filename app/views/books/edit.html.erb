@@ -2,22 +2,20 @@
   <%= flash[:notice] %>
 </div>
 <h1>Editing Book</h1>
- <%= form_with model: @list, url: update_list_path(@list.id), method: :patch do |f| %>
-    <% if @list.errors.any? %>
-      <%= @list.errors.count %>errors prohibited this book from being saved:
+ <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %>errors prohibited this book from being saved:
       <ul>
-        <% @list.errors.full_messages.each do |message| %>
+        <% @book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     <% end %>
   <div>Title</div>
   <%= f.text_field :title %>
-  
   <div>Body</div>
   <%= f.text_area :body %><br>
   <%= f.submit 'Update Book' %><br>
-  <%= link_to "Show", list_path(@list.id) %> |
-  <%= link_to "Back", "/lists/new" %>
-  
+  <%= link_to "Show", book_path(@book.id) %> |
+  <%= link_to "Back", book_path %>
 <% end %>
