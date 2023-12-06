@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="WebCampBackendNew" >
     <meta name="viewport" content="width=device-width,initial-scale=1" >
-    <link rel="stylesheets" href="/books.css"/>
+    <link rel="stylesheet" href="/books.css"/>
   </head>
   <body>
     <p id="notice"></p>
@@ -25,7 +25,7 @@
         　　<td><%= book.body %></td>
         　　<td><%= link_to 'Show', book_path(book) %></td>
         　　<td><%= link_to 'Edit', edit_book_path(book) %></td>
-        　　<td><%= link_to 'Distroy', book ,method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        　　<td><%= link_to 'Destroy', book ,method: :delete, data: {confirm: 'Are you sure?' } %></td>
       　　</tr>
     　　<% end %>
       </tbody>
@@ -40,7 +40,7 @@
         <% end %>
       </ul>
     <% end %>
-      <%= form_with model: @book, url: '/books', method: :post do |f| %>
+      <%= form_with model: @book, url: books_path, method: :post do |f| %>
         <div class="faied">
           <label>Title</label><br>
           <%= f.text_field :title %>
@@ -50,7 +50,7 @@
           <%= f.text_area :body %>
         </div>
         <div class="actions">
-          <%= f.submit 'Create book' %>
+          <%= f.submit 'Create Book' %>
         </div>
         
       <% end %>

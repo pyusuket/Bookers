@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="WebCampBackendNew" >
     <meta name="viewport" content="width=device-width,initial-scale=1" >
-    <link rel="stylesheets" href="/books.css"/>
+    <link rel="stylesheet" href="/books.css"/>
   </head>
 <body>
   <div class="flash-message">
@@ -27,7 +27,7 @@
   <%= f.text_area :body %><br>
   <%= f.submit 'Update Book' %><br>
   <%= link_to "Show", book_path(@book.id) %> |
-  <%= link_to "Back", book_path %>
+  <%= link_to "Back", books_path %>
 <% end %>
   
 </body>
