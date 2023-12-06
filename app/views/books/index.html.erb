@@ -19,28 +19,28 @@
         </tr>
       </thead>
       <tbody>
-        <% @lists.each do |list| %>
+        <% @books.each do |book| %>
       　　<tr>
-        　　<td><%= list.title %></td>
-        　　<td><%= list.body %></td>
-        　　<td><%= link_to 'Show', list_path(list) %></td>
-        　　<td><%= link_to 'Edit', edit_list_path(list) %></td>
-        　　<td><%= link_to 'Distroy', list ,method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        　　<td><%= book.title %></td>
+        　　<td><%= book.body %></td>
+        　　<td><%= link_to 'Show', book_path(book) %></td>
+        　　<td><%= link_to 'Edit', edit_book_path(book) %></td>
+        　　<td><%= link_to 'Distroy', book ,method: :delete, data: {confirm: 'Are you sure?' } %></td>
       　　</tr>
     　　<% end %>
       </tbody>
     </table>
     
     <h2>New book</h2>
-    <% if @list.errors.any? %>
-      <%= @list.errors.count %>errors prohibited this book from being saved:
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %>errors prohibited this book from being saved:
       <ul>
-        <% @list.errors.full_messages.each do |message| %>
+        <% @book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     <% end %>
-      <%= form_with model: @list, url: '/lists', method: :post do |f| %>
+      <%= form_with model: @book, url: '/books', method: :post do |f| %>
         <div class="faied">
           <label>Title</label><br>
           <%= f.text_field :title %>
